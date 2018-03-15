@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // importo l'action creator
 import { fetchPosts } from '../actions/index';
@@ -9,11 +9,9 @@ class PostsIndex extends Component {
     this.props.fetchPosts();
   }
 
-
   renderPosts() {
     return this.props.posts.map((post) => {
       if(post.title || post.categories){
-
         return (
           <li className="list-group-item" key={post.id}>
             <Link to={"posts/" + post.id} >
