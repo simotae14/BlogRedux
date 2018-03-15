@@ -9,16 +9,20 @@ class PostsIndex extends Component {
     this.props.fetchPosts();
   }
 
+
   renderPosts() {
     return this.props.posts.map((post) => {
-      return (
-        <li className="list-group-item" key={post.id}>
-          <Link to={"posts/" + post.id} >
-            <span className="pull-xs-right">{post.categories}</span>
-            <strong>{post.title}</strong>
-          </Link>
-        </li>
-      );
+      if(post.title || post.categories){
+
+        return (
+          <li className="list-group-item" key={post.id}>
+            <Link to={"posts/" + post.id} >
+              <span className="pull-xs-right">{post.categories}</span>
+              <strong>{post.title}</strong>
+            </Link>
+          </li>
+        );
+      }
     });
   }
   render() {
